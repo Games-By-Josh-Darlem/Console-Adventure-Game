@@ -4,8 +4,10 @@ import java.util.Scanner;
 public class SuperJDBros {
 
     public static void main(String[] args) {
+
+
         choosePlayer();
-        levelOne(0, 10);
+        nextLevelTwo();
     }
 
     public static void choosePlayer() {
@@ -29,37 +31,28 @@ public class SuperJDBros {
             }
         }
     }
-    public static void levelOne(int min, int max) {
+
+    public static void nextLevelTwo() {
         Random randLvl = new Random();
         int upperbound = 10;
-
-
-        String lvlTwo = "level 2";
+        Scanner askToContinue = new Scanner(System.in);
+        int nextLvl = 2;
         int int_random = randLvl.nextInt(upperbound);
-        for (int i = 0; i <= max; i++) {
-
+        for (int i = 0; i < upperbound; i++) {
+            if (int_random < upperbound) {
+                System.out.println("Don't move to level " + nextLvl + " [" + int_random + "/" + upperbound + " points]");
+                System.out.println("Do you want to continue? [y/n]");
+                String userChoice = askToContinue.next();
+                if (userChoice.equalsIgnoreCase("Y")) {
+                    int_random++;
+                } else {
+                    System.out.println("Goodbye!");
+                    break;
+                }
+            } else {
+                System.out.println("SUCCESS! Move to level " + nextLvl++); // incementing next level for the next round of point accumulation
+                break;
+            }
         }
-
-
-        System.out.println("The goomba's strength, that was defeated, level " + int_random + "," + " need to defeat more enemies");
-
-        System.out.println("The turtle's strength, that was defeated, was level " + int_random +"," + " you have defeated enough enemies to move to " + lvlTwo);
     }
-//    public static long getPowerRecursive(int base, int exponent) { // 1. getPowerRecursive(6, 3)  -- goal: 6 * 6 * 6
-//        if (exponent == 0) {
-//            return 1; // any number to the power of 0 is equal to 1
-//        } else if (exponent == 1) {
-//            return base; // any number to the power of 1 is equal to itself
-//        } else if (exponent == 2) {
-//            return base * base;
-//        }
-//        return base * getPowerRecursive(base, exponent - 1);  // we want to do 3 ^ 5, i.e. getPowerRecursive(3, 5)
-//
-//        // 1. return 3 * getPowerRecursive(3, (5-1)), i.e. getPowerRecursive(3, 4)
-//        // 2. return 3 * ( 3 * getPowerRecursive(3, (4-1)) ), i.e. getPowerRecursive(3, 3)
-//        // 3. return 3 * ( 3 * ( 3 * ( getPowerRecursive(3, (3-1)) ) , i.e. getPowerRecursive(3, 2)
-//        //  3.a) return 3 * ( 3 * ( 3 ) ) ) * 3 * 3;
-//        ///  = 3 * 3 * 3 * 3 * 3
-//        ///  = 3 ^ 5 = 243
-//    }
 }
