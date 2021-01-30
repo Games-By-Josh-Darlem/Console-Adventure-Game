@@ -8,6 +8,7 @@ public class SuperJDBros {
 
         choosePlayer();
         nextLevelTwo();
+        nextLevelThree();
     }
 
     public static void choosePlayer() {
@@ -66,7 +67,7 @@ public class SuperJDBros {
             Random randLvlTwo = new Random();
             int anotherLevel = 20;
             Scanner askToContinueAgain = new Scanner(System.in);
-            int nextLvl3 = 2;
+            int nextLvl3 = 3;
             int int_random = randLvlTwo.nextInt(anotherLevel);
             for (int i = 0; i < anotherLevel; i++) {
                 if (int_random < anotherLevel) {
