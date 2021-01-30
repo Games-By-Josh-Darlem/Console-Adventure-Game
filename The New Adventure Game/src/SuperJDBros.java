@@ -64,6 +64,7 @@ public class SuperJDBros {
     }
 
         public static void nextLevelThree() {
+            System.out.println("Welcome to level 2!");
             Random randLvlTwo = new Random();
             int anotherLevel = 20;
             Scanner askToContinueAgain = new Scanner(System.in);
