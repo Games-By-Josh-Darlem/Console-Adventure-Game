@@ -15,6 +15,7 @@ public class SuperJDBros {
         // function has to run in void Main in order to print out
         System.out.println("Which player would you like to continue with?");
         String playerOption = pickPlayer.nextLine();
+        Scanner askToContinue = new Scanner(System.in);
 //        // Here, you'll pick a player with either A or B
 //        // if statement lets player choose A or B
 //        // output is supposed to let player play with player 1
@@ -24,6 +25,11 @@ public class SuperJDBros {
         if (playerOption.equals("A")) {
             playerA = "Jario";
             System.out.println("By pressing A,you have chosen " + playerA + "!");
+            System.out.println("Do you want to continue? [y/n]");
+            String userChoice = askToContinue.next();
+            if (userChoice.equalsIgnoreCase("Y")) {
+
+            }
         } else {
             if (playerOption.equals("B")) {
                 playerB = "Darluigi";
@@ -55,4 +61,29 @@ public class SuperJDBros {
             }
         }
     }
-}
+
+        public static void nextLevelThree() {
+            Random randLvlTwo = new Random();
+            int anotherLevel = 20;
+            Scanner askToContinueAgain = new Scanner(System.in);
+            int nextLvl3 = 2;
+            int int_random = randLvlTwo.nextInt(anotherLevel);
+            for (int i = 0; i < anotherLevel; i++) {
+                if (int_random < anotherLevel) {
+                    System.out.println("Don't move to level " + nextLvl3 + " [" + int_random + "/" + anotherLevel + " points]");
+                    System.out.println("Do you want to continue? [y/n]");
+                    String userChoice = askToContinueAgain.next();
+                    if (userChoice.equalsIgnoreCase("Y")) {
+                        int_random++;
+                    } else {
+                        System.out.println("Goodbye!");
+                        break;
+                    }
+                } else {
+                    System.out.println("SUCCESS! Move to level " + nextLvl3++); // incementing next level for the next round of point accumulation
+                    break;
+                }
+            }
+        }
+    }
+
